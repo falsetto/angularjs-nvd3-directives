@@ -540,6 +540,8 @@ angular.module('nvd3ChartDirectives', [])
                 id: '@',
                 showlegend: '@',
                 tooltips: '@',
+                showxaxis: '@',
+                showyaxis: '@',
                 tooltipcontent: '&',
                 color: '&',
                 showcontrols: '@',
@@ -637,6 +639,8 @@ angular.module('nvd3ChartDirectives', [])
                                     .showLegend(attrs.showlegend === undefined ? false : (attrs.showlegend === "true"))
                                     .showControls(attrs.showcontrols === undefined ? false : (attrs.showcontrols === "true"))
                                     .tooltips(attrs.tooltips === undefined ? false : (attrs.tooltips  === "true"))
+                                    .showXAxis(attrs.showxaxis === undefined ? false : (attrs.showxaxis  === "true"))
+                                    .showYAxis(attrs.showyaxis === undefined ? false : (attrs.showyaxis  === "true"))
                                     .reduceXTicks(attrs.reducexticks === undefined ? false: (attrs.reducexticks === "true"))
                                     .staggerLabels(attrs.staggerlabels === undefined ? false : (attrs.staggerlabels === "true"))
                                     .noData(attrs.nodata === undefined ? 'No Data Available.' : scope.nodata)

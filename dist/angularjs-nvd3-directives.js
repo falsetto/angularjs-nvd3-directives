@@ -1,4 +1,4 @@
-/*! angularjs-nvd3-directives - v0.0.2-beta - 2013-10-30
+/*! angularjs-nvd3-directives - v0.0.2-beta - 2013-11-06
 * http://cmaurer.github.io/angularjs-nvd3-directives
 * Copyright (c) 2013 Christian Maurer; Licensed Apache License, v2.0 */
 angular.module('legendDirectives', [])
@@ -687,6 +687,7 @@ angular.module('nvd3ChartDirectives', [])
                     if(data){
                         //if the chart exists on the scope, do not call addGraph again, update data and call the chart.
                         if(scope.chart){
+                            scope.chart.yAxis.tickFormat(scope.yaxistickformat());
                             return scope.d3Call(data, scope.chart);
                         }
                         nv.addGraph({
@@ -1082,6 +1083,8 @@ angular.module('nvd3ChartDirectives', [])
                 id: '@',
                 showlegend: '@',
                 tooltips: '@',
+                showxaxis: '@',
+                showyaxis: '@',
                 tooltipcontent: '&',
                 color: '&',
                 showcontrols: '@',
@@ -1179,6 +1182,8 @@ angular.module('nvd3ChartDirectives', [])
                                     .showLegend(attrs.showlegend === undefined ? false : (attrs.showlegend === "true"))
                                     .showControls(attrs.showcontrols === undefined ? false : (attrs.showcontrols === "true"))
                                     .tooltips(attrs.tooltips === undefined ? false : (attrs.tooltips  === "true"))
+                                    .showXAxis(attrs.showxaxis === undefined ? false : (attrs.showxaxis  === "true"))
+                                    .showYAxis(attrs.showyaxis === undefined ? false : (attrs.showyaxis  === "true"))
                                     .reduceXTicks(attrs.reducexticks === undefined ? false: (attrs.reducexticks === "true"))
                                     .staggerLabels(attrs.staggerlabels === undefined ? false : (attrs.staggerlabels === "true"))
                                     .noData(attrs.nodata === undefined ? 'No Data Available.' : scope.nodata)
